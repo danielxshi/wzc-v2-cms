@@ -32,7 +32,7 @@ export default async function PostPage({
       <div>
         <div className={style["article--detail--page"]}>
           <div className="grid--container">
-            {/* <ArticleDetailSection
+            <ArticleDetailSection
               category={post.category["category"]}
               subCategory={post.category["sub"]}
               articleTitle={post.title}
@@ -40,7 +40,7 @@ export default async function PostPage({
               <div className={style["article--content--item"]}>
                 <Markdown content={post.content} />
               </div>
-            </ArticleDetailSection> */}
+            </ArticleDetailSection>
             {/* <CurrentNews /> */}
             {/* <SideNews category={category}>
               {renderSwitch2(currentItem.categoryClass)}
