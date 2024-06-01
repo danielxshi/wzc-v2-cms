@@ -10,7 +10,7 @@ import style2 from "../style/modules/_banner.module.scss";
 import MenuItems from "../JSON/ArticleMessages";
 import ContentfulImage from "@/lib/contentful-image";
 
-export const renderSwitch = (params) => {
+const renderSwitch = (params) => {
   if (!params) {
     return "";
   }
@@ -94,7 +94,7 @@ export const renderSwitch = (params) => {
   }
 };
 
-export default function Council(props) {
+export default function Council() {
   return (
     <>
       <Carousel />

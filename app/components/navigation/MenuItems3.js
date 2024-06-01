@@ -5,7 +5,7 @@ import MenuMessages from "../../JSON/MenuItems";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export const renderSwitch = (params) => {
+const renderSwitch = (params) => {
   const router = usePathname();
   if (!params) {
     return "";

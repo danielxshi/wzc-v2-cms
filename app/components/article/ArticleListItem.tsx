@@ -21,7 +21,7 @@ export function LocalItem({
   category: any;
 }) {
   const image = (
-    <img
+    <ContentfulImage
       // alt={`Cover Image for ${title}`}
       priority
       // width={2000}

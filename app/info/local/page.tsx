@@ -7,11 +7,13 @@ import MenuItems from "../../JSON/MenuItems";
 // import { useRouter } from "next/router";
 import Link from "next/link";
 import style from "../../style/modules/_nav.module.scss";
-import ArticleListItem, { LocalItem } from "@/app/components/article/ArticleListItem";
+import ArticleListItem, {
+  LocalItem,
+} from "@/app/components/article/ArticleListItem";
 
 const category = "当地生活信息";
 
-export const renderSwitch = (params) => {
+const renderSwitch = (params) => {
   //   const router = useRouter();
   if (!params) {
     return "";

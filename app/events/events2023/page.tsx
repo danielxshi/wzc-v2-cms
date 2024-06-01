@@ -18,7 +18,7 @@ import ArticleListItem from "@/app/components/article/ArticleListItem";
 
 const category = "信息资讯";
 
-export const renderSwitch = (params) => {
+const renderSwitch = (params) => {
   // const router = useLocation();
   // if (!params) {
   //   return "";
@@ -50,7 +50,7 @@ export const renderSwitch = (params) => {
   }
 };
 
-export default async function Information({ ArticleItems }) {
+export default async function Information({}) {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
 

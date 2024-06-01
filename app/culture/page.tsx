@@ -15,10 +15,11 @@ import MenuItems from "./../JSON/MenuItems";
 import Link from "next/link";
 import style from "@/app/style/modules/_nav.module.scss";
 import ArticleListItem from "@/app/components/article/ArticleListItem";
+import { UrlObject } from "url";
 
 const category = "信息资讯";
 
-export const renderSwitch = (params) => {
+const renderSwitch = (params) => {
   // const router = useLocation();
   // if (!params) {
   //   return "";
@@ -30,18 +31,39 @@ export const renderSwitch = (params) => {
     case "info":
       return (
         <div>
-          {value.map((obj, index) => (
-            <div className={style["menu--item--container"]}>
-              <Link href={obj.url}>
-                <span
-                  key={index}
-                  // className={location.pathname == `${obj.url}` ? "subactive" : ""}
-                >
-                  {obj.subtitle}
-                </span>
-              </Link>
-            </div>
-          ))}
+          {value.map(
+            (
+              obj: {
+                url: string | UrlObject;
+                subtitle:
+                  | string
+                  | number
+                  | bigint
+                  | boolean
+                  | React.ReactElement<
+                      any,
+                      string | React.JSXElementConstructor<any>
+                    >
+                  | Iterable<React.ReactNode>
+                  | React.ReactPortal
+                  | Promise<React.AwaitedReactNode>
+                  | null
+                  | undefined;
+              },
+              index: React.Key | null | undefined
+            ) => (
+              <div className={style["menu--item--container"]}>
+                <Link href={obj.url}>
+                  <span
+                    key={index}
+                    // className={location.pathname == `${obj.url}` ? "subactive" : ""}
+                  >
+                    {obj.subtitle}
+                  </span>
+                </Link>
+              </div>
+            )
+          )}
         </div>
       );
 
