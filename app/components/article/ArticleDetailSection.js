@@ -6,24 +6,27 @@ function ArticleDetailSection(props) {
     <div className={style["article--detail--section"]}>
       <div className={style["margin-realign"]}>
         <div className={style["article--detail--heading--container"]}>
-          <h2 className="text-2xl font-bold">{props.category}</h2>
+          <h2 className="text-2xl font-bold uppercase opacity-60">{props.category}</h2>
           <small className="mr-2 ml-auto text-base">
             当前位置:
             {/* home */}
-            <Link href="/">
-              <a className="text-link-black">&nbsp;首页</a>
-            </Link>
+            <span className="text-link-black" href="/">
+              首页
+            </span>
             &nbsp; &gt; &nbsp;
-            <Link href={`/${props.parentDirectory}/${props.categoryClass}`}>
-              <a className="text-link-black">{props.category}</a>
-            </Link>
+            <span
+              className="text-link-black"
+              href={`/${props.parentDirectory}/${props.categoryClass}`}
+            >
+              {props.category}
+            </span>
             &nbsp; &gt; &nbsp;
-            <Link href={`/${props.subDirectory}`}>
-              <a className="text-link-black">{props.subCategory}</a>
-            </Link>
+            <span className="text-link-black" href={`/${props.subDirectory}`}>
+              {props.subCategory}
+            </span>
           </small>
         </div>
-        <h1 className="text-6xl font-bold mt-12 leading-loose">
+        <h1 className="text-6xl font-bold mt-12 md:mb-12 mb-4 leading-loose">
           {props.articleTitle}
         </h1>
         {props.children}

@@ -26,7 +26,9 @@ export const renderSwitch = (params) => {
                   { router } == `${item.p1}` ||
                   { router } == `${item.p2}` ||
                   { router } == `${item.p3}` ||
-                  { router } == `${item.p4}`
+                  { router } == `${item.p4}` ||
+                  { router } == `${item.p5}` ||
+                  { router } == `${item.p6}`
                     ? "active"
                     : ""
                 }

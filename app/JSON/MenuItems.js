@@ -59,6 +59,10 @@ const FooterC3MenuItems = [
 
 const FooterC4MenuItems = [
   {
+    Item: "2024年活动",
+    Link: "/events/events2024",
+  },
+  {
     Item: "2023年活动",
     Link: "/events/events2023",
   },
@@ -102,6 +106,10 @@ const InfoSideNav = [
 ];
 
 const EventSideNav = [
+  {
+    Item: "2024年活动",
+    Link: "/events/events2024",
+  },
   {
     subtitle: "2023年活动",
     url: "/events/events2023",
@@ -156,6 +164,10 @@ const SideNavMenuItems = [
   },
   {
     events: [
+      {
+        subtitle: "2024年活动",
+        url: "/events/events2024",
+      },
       {
         subtitle: "2023年活动",
         url: "/events/events2023",
@@ -248,12 +260,18 @@ const NavMenuItems2 = [
       {
         title: "活动分享",
         id: 3,
-        url: "/events/events",
-        p1: "/events/events2022",
-        p2: "/events/events2021",
-        p3: "/events/events2020",
-        p4: "/events/events2019",
+        url: "/events",
+        p1: "/events/events2024",
+        p2: "/events/events2023",
+        p3: "/events/events2022",
+        p4: "/events/events2021",
+        p5: "/events/events2020",
+        p6: "/events/events2019",
         submenu: [
+          {
+            subtitle: "2024年活动",
+            url: "/events/events2024",
+          },
           {
             subtitle: "2023年活动",
             url: "/events/events2023",
@@ -280,7 +298,7 @@ const NavMenuItems2 = [
       {
         title: "文化园地",
         id: 4,
-        url: "/culture/CulturalPark",
+        url: "/culture",
         p1: "/culture/art",
         p2: "/culture/wenzhou",
         submenu: [
@@ -318,7 +336,8 @@ const MenuItems = {
   CultureSideNav: CultureSideNav,
   QRCode: QRCode,
   QRFallBack: QRFallBack,
-  Logo, Logo,
+  Logo,
+  Logo,
 
   CompanyNameCH: CompanyNameCH,
   CompanyNameEN: CompanyNameEN,
