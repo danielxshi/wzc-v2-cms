@@ -1,101 +1,177 @@
+"use client";
+import style from "./style/modules/_landing.module.scss";
 import Link from "next/link";
-import { draftMode } from "next/headers";
+import Image from "next/image";
+import MenuItems from "./JSON/LandingMenuItems";
+import Carousel from "react-bootstrap/Carousel";
+import buttonStyle from "../styles/modules/_button.module.scss";
+import ImageWithFallback from "./components/ImageWithFallBack";
+import ContentfulImage from "@/lib/contentful-image";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import React from "react";
+import "@splidejs/react-splide/css";
+import { LOOP } from "@splidejs/splide";
+import logo from "@/app/public/images/logos/white-logo.png";
 
-import Date from "./date";
-import CoverImage from "./cover-image";
-import Avatar from "./avatar";
-import MoreStories from "./more-stories";
-
-import { getAllPosts } from "@/lib/api";
-import { CMS_NAME, CMS_URL } from "@/lib/constants";
-
-function Intro() {
-  return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
-      </h1>
-      <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{" "}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{" "}
-        and{" "}
-        <a
-          href={CMS_URL}
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          {CMS_NAME}
-        </a>
-        .
-      </h2>
-    </section>
-  );
-}
-
-function HeroPost({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}: {
-  title: string;
-  coverImage: any;
-  date: string;
-  excerpt: string;
-  author: any;
-  slug: string;
-}) {
+function LandingDesktop() {
   return (
     <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <Link href={`/posts/${slug}`} className="hover:underline">
-              {title}
-            </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <Date dateString={date} />
-          </div>
+      <Splide
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        options={{
+          type: LOOP,
+          autoplay: true,
+          rewind: true,
+          easing: "linear",
+          autoScroll: {
+            speed: 6000,
+            pauseOnHover: true,
+            pauseOnFocus: false,
+          },
+        }}
+      >
+        {MenuItems.LandingCarousel.map((item, index) => {
+          return (
+            <SplideSlide key={index} className="min-h-screen w-full">
+              <ContentfulImage
+                className="d-block w-100 h-100"
+                src={item.src}
+                // fallbackSrc={item.fallback}
+                alt={item.alt}
+                layout="fill"
+                objectFit="cover"
+              />
+            </SplideSlide>
+          );
+        })}
+      </Splide>
+      <div className={style["overlay"]}></div>
+
+      <div className={style["logo--container--wrapper"]}>
+        <div className={style["logo--container"]}>
+          <ContentfulImage
+            objectFit="contain"
+            layout="fill"
+            src={logo}
+            priority
+            className={style["logo"]}
+          />
         </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          {author && <Avatar name={author.name} picture={author.picture} />}
+      </div>
+
+      <div className={[style["topbar"], [" hidden"]].join(" md:flex")}>
+        <ul>
+          {MenuItems.LandingTopBar.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={[style["topbar--item--container"], [" flex"]].join(
+                  " "
+                )}
+              >
+                <span>{item.title} :</span>
+                <div className={style["item--container"]}>
+                  <li className="text--shadow">{item.item}</li>
+                  <li className="text--shadow">{item.item2}</li>
+                </div>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div
+        className={[
+          style["content"],
+          [
+            " absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full",
+          ],
+        ].join(" ")}
+      >
+        <div className={style["primary-nav--wrapper"]}>
+          <div
+            className={[style["header--wrapper"], [" flex flex-col"]].join(" ")}
+          >
+            <h1 className="text-6xl">加拿大温州同乡总会</h1>
+            <span className="text--shadow text-center w-full mt-4 text-3xl">
+              团结、互助、携手、共进
+            </span>
+          </div>
+
+          <nav className="mt-4 md:flex h-[50vh] top-0 absolute w-screen hidden">
+            <ul
+              className={[
+                style["menu"],
+                [" justify-around flex flex-wrap w-full mt-auto mb-32"],
+              ].join(" ")}
+            >
+              {MenuItems.MenuItems.map((item, index) => {
+                return (
+                  <li className="">
+                    <Link className="text-4xl " href={item.link}>
+                      {item.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
         </div>
       </div>
     </section>
   );
 }
 
-export default async function Page() {
-  const { isEnabled } = draftMode();
-  const allPosts = await getAllPosts(isEnabled);
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
-
+function LandingNav() {
   return (
-    <div className="container mx-auto px-5">
-      <Intro />
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-      )}
-      <MoreStories morePosts={morePosts} />
+    <section className={[style[""], [" max-h-max md:hidden block"]].join(" ")}>
+      <ul
+        className={[
+          style["gallery"],
+          style["gallery__content--flow"],
+          ["flex"],
+        ].join(" ")}
+      >
+        {MenuItems.MenuItems.map((item, index) => {
+          return (
+            <Link className="" href={item.link}>
+              <figure className="" key={index}>
+                <ContentfulImage
+                  objectFit="cover"
+                  layout="fill"
+                  src={item.src}
+                  alt={item.alt}
+                  priority
+                  className={style["logo"]}
+                />
+                <div className={style["layer"]}></div>
+
+                <figcaption
+                  className="absolute block z-10 text-white font-bold  text-shadow"
+                  role="presentation"
+                >
+                  <span className="title title--primary text-xl text-shadow">
+                    {item.title}
+                  </span>
+                </figcaption>
+              </figure>
+            </Link>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+export default function Landing() {
+  return (
+    <div className={style["landing--main"]}>
+      <LandingDesktop />
+      <LandingNav />
     </div>
   );
 }

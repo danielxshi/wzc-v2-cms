@@ -1,0 +1,83 @@
+@import "../base/_variables.scss";
+
+// Buttons
+.link--button {
+  font-family: $body--font-family;
+}
+
+.text--link,
+.text--link a {
+  line-height: 150%;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0.6;
+  -moz-transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+  &:hover {
+    -moz-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    opacity: 1 !important;
+    color: $accent--yellow;
+  }
+}
+
+.primary--btn {
+  height: $button--height;
+  padding-left: $xs-margin;
+  padding-right: $xs-margin;
+  letter-spacing: $button--tk;
+  font-size: $button--font-sz;
+  padding-top: $xs-margin;
+  padding-bottom: $xs-margin;
+  transition: 0.6s ease-out;
+  height: fit-content;
+  overflow: hidden;
+  background: $primary--brown;
+  z-index: 1;
+  // cursor: crosshair !important;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  &:hover {
+    color: $primary--white;
+  }
+  &:before {
+    background: $hover--blue;
+    content: "";
+    position: absolute;
+    // top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transition: top 0.35s ease-out;
+    transition-timing-function: $cubic;
+  }
+  &:hover:before {
+    top: 0;
+  }
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  a {
+    text-decoration: none;
+    color: grey;
+    transition: 0.3s ease-in-out;
+    &:active {
+      color: white;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.underline--btn{
+  
+}

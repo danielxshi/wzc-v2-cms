@@ -1,0 +1,132 @@
+@import '../framework/breakpoints.scss';
+
+.grid--container {
+  @include viewportLargerThan($tablet-max-breakpoint) {
+    display: grid;
+  }
+  grid-template-columns: $column--count;
+  column-gap: $grid--gap;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.grid--extent{
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.grid--padding--lrg {
+  padding-top: $lrg-margin;
+  padding-bottom: $lrg-margin;
+}
+
+.nav--grid--align--left {
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+
+.grid--anchor--right--s5--e--m2 {
+  grid-column-start: 5;
+  grid-row-start: $grid--start;
+  grid-column-end: $grid--end - 2;
+}
+
+.grid--gc--s7--end {
+  grid-column-start: 7;
+  grid-column-end: $grid--end;
+  grid-row-start: $grid--start;
+}
+
+.grid--gc--s1--e5 {
+  grid-column-start: $grid--start;
+  grid-column-end: 5;
+}
+
+.grid--gc--s1--e6 {
+  grid-column-start: $grid--start;
+  grid-column-end: 6;
+}
+
+.grid--gc--s1--e7 {
+  grid-column-start: $grid--start;
+  grid-column-end: 7;
+}
+
+.grid--gc--s7--e11 {
+  grid-column-start: 7;
+  grid-column-end: 11;
+}
+
+.grid--gc--s7--end {
+  grid-column-start: 7;
+  grid-column-end: $grid--end;
+}
+
+.grid--span--3 {
+  grid-column-end: span 3;
+}
+
+.grid--span--4 {
+  grid-column-end: span 4;
+}
+
+.grid--span--5 {
+  grid-column-end: span 5;
+}
+
+.three--col--flex--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  li {
+    width: 30%;
+  }
+}
+
+// Change the media query to breakpoints
+@media only screen and (min-width: $largeQuery) {
+  .grid--container {
+    max-width: $max--width;
+    padding-left: $sm-margin;
+    padding-right: $sm-margin;
+
+    > div,
+    > header,
+    > article {
+      margin-top: $med-margin;
+      margin-bottom: $med-margin;
+    }
+  }
+}
+
+@media only screen and (max-width: $medQuery) {
+  .grid--container {
+    max-width: $max--width;
+    padding-left: $sm-margin;
+    padding-right: $sm-margin;
+    > div,
+    > header,
+    > article {
+      padding-top: $sm-margin;
+      padding-bottom: $sm-margin;
+    }
+  }
+}
+
+@media only screen and (max-width: $minQuery) {
+  .grid--container {
+    max-width: $smWidth;
+    padding-left: $sm-margin;
+    padding-right: $sm-margin;
+    > div,
+    > header,
+    > article {
+      padding-top: $sm-margin;
+      padding-bottom: $sm-margin;
+    }
+  }
+  .nav--grid--align--left {
+    grid-column-start: 1;
+    grid-column-end: 10;
+  }
+}

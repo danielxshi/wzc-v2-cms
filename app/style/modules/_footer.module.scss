@@ -1,0 +1,157 @@
+@import "../base/_variables.scss";
+@import "../framework/_grid.scss";
+@import "../modules/button.module";
+
+// Footer base
+.footer {
+  z-index: -1;
+  color: $primary--white;
+  background-color: $dark--blue;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.link--col--1 {
+  grid-column-start: $grid--start;
+  grid-column-end: 4;
+}
+.link--col--2 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+}
+.link--col--3 {
+  grid-column-start: 10;
+  grid-column-end: $grid--end;
+}
+.footer--logo {
+  grid-column-start: $grid--start;
+  grid-column-end: 5;
+  h3 {
+    font-weight: bolder;
+    letter-spacing: -1.5px;
+  }
+}
+.footer--links--row {
+  grid-column-start: $grid--start;
+  grid-column-end: $grid--end;
+  height: fit-content;
+  display: flex;
+  > div {
+    margin-right: $med-margin;
+  }
+}
+
+// Bottom bar
+.footer--bottom--bar--contents {
+  justify-content: center;
+  align-items: center;
+  grid-column-end: -1;
+  grid-column-start: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social--media--item--wrapper {
+  display: flex;
+  * {
+    margin-right: calc($xs-margin/2);
+  }
+}
+
+.brand--items {
+  display: flex;
+  * {
+    margin-left: $xs-margin;
+  }
+}
+
+.footer--service--header {
+  padding-bottom: $xs-margin;
+  margin-bottom: $sm-margin;
+  border-bottom: solid 1px $primary--white;
+}
+
+.c1--list--item {
+  margin-top: $xs-margin;
+  opacity: 0.6 !important;
+}
+
+.footer--social--wrapper {
+  margin-top: $sm-margin;
+  display: flex;
+  li {
+    svg {
+      height: 32px;
+      width: 32px;
+      color: $accent--yellow;
+    }
+    margin-right: $sm-margin;
+    :last-child {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+.footer--grid--container {
+  max-width: $max--width;
+  padding-left: $lrg-margin;
+  padding-right: $lrg-margin;
+  display: grid;
+  margin: auto;
+}
+
+.footer--container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer--menu--module--container {
+  margin-right: 4rem;
+}
+
+@media only screen and (min-width: $largeQuery) {
+  .grid--container {
+    max-width: $max--width;
+  }
+
+  .footer--links--row {
+    margin-bottom: $med-margin;
+  }
+
+  .footer--grid--container {
+    > div > small:last-child {
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: $medQuery) {
+  .operation--info {
+    margin-top: $med-margin !important;
+  }
+}
+
+@media only screen and (max-width: $minQuery) {
+  .footer--links--row {
+    flex-direction: column;
+  }
+
+  .footer--grid--container {
+    max-width: $max--width;
+    padding-left: $sm-margin;
+    padding-right: $sm-margin;
+    display: grid;
+    margin: auto;
+    > div {
+      opacity: 50%;
+      flex-direction: column;
+    }
+  }
+
+  .footer--container {
+    flex-wrap: wrap;
+    padding-bottom: 0 !important;
+    > div {
+      margin-bottom: $sm-margin;
+    }
+  }
+}

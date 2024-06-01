@@ -1,0 +1,115 @@
+$heading--font-family: 'Lato', sans-serif;
+$body--font-family: 'Tenor Sans', sans-serif;
+
+// Layout sizes
+$max--layout--height: 100vh;
+$large--layout--height: 50vh;
+$medium--layout--height: 40vh;
+$small--layout--height: 25vh;
+$xs--layout--height: 12.5vh;
+
+// Nav
+$nav--height--base: 58px;
+$nav--height--small: 3rem;
+$nav--height--base--px: 64px;
+$nav--height--small--px: 48px;
+
+// Font | Sizing
+$h1--font-sz: 6.125rem;
+$h2--font-sz: 3.813rem;
+$h3--font-sz: 3.063rem;
+$h4--font-sz: 2.188rem;
+$h5--font-sz: 1.5rem;
+$h6--font-sz: 1.25rem;
+$subtitle-1--font-sz: 1.1*1rem;
+$subtitle-2--font-sz: 1.1*0.875rem;
+$body-1--font-sz: 1.1*0.938rem;
+$body-2--font-sz: 1.1*0.813rem;
+$button--font-sz: 1.1*0.813rem;
+$caption--font-sz: 1.1*0.75rem;
+$overline--font-sz: 1.1*0.75rem;
+
+// Font | Tracking
+$h1--tk: -0.09375rem; //1.5px
+$h2--tk: -0.03125rem; //-0.5px
+$h3--tk: 0; // 0
+$h4--tk: 0.015625; //0.25px
+$h5--tk: 0; // 0
+$h6--tk: 0.009375rem; //0.15px
+$subtitle-1--tk: 0.009375rem; //0.15px
+$subtitle-2--tk: 0.00625rem; //0.1px
+$body-1--tk: 0.03125rem; //0.5px
+$body-2--tk: 0.015625rem; //0.25px
+$button--tk: 0.015625rem; //1.2px
+$caption--tk: 0.025rem; //0.4px
+$overline--tk: 0.09375rem; //1.5px
+$body--line--height: 2em;
+
+// Margins
+$lrg-margin: 5.25rem;
+$med-margin: 3rem;
+
+// New margin - testing
+// $lrg-margin: 3.25rem;
+// $med-margin: 2.25rem;
+
+$sm-margin: 1.5rem;
+$xs-margin: 0.75rem;
+
+// Buttons
+$button--height: 3rem;
+
+// Grid
+$grid--gap: 1.5rem;
+$mobile--grid--gap: 0.5rem;
+$column--count: repeat(12, 1fr);
+$max--width: 1440px;
+$mobile--max--width: 600px;
+$grid--start: 1;
+$grid--end: -1;
+
+// Color
+$nav-bg-color: rgb(31, 31, 31);
+$cta--blue: #2981FF;
+$header--blue: #003279;
+$dark--blue: #111626;
+$bg-light-blue: #F5F9FC;
+$jet--grey: #333333;
+$hover--blue: #1d4ed8;
+$red: #CB2E3B;
+/* ------------------------------------ OLD */
+$primary--brown: #231b1a;
+$secondary--brown: #a39581;
+$tertiary--brown: #302b2c;
+$primary--white: #ffffff;
+$primary--black: #000000;
+$secondary--black: #151515;
+$primary--gray: #73706f;
+$secondary--gray: #7a7061;
+$tertiary--gray: #5C5449;
+$cta--gray: #3D3830;
+$accent--yellow: #cd9743;
+
+$largeQuery: 1024px;
+$medQuery: 1023px;
+$minQuery: 768px;
+
+
+// $largeQuery: 1024px;
+// $medQuery: 768px;
+// $minQuery: 480px;
+
+// Page width
+$smWidth: 600px;
+
+%transition--time {
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -moz-transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+// transition
+$cubic: cubic-bezier(0.16, 0.01, 0.77, .1);

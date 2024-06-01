@@ -1,0 +1,47 @@
+@import "../base/variables";
+@import "../framework/layout";
+@import "../modules/button.module";
+.article--content--item {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  position: relative;
+  * {
+    font-family: Arial, 宋体;
+    font-weight: 600;
+    margin-bottom: $sm-margin;
+    white-space: pre-line !important;
+    word-break: break-all;
+    white-space: pre-wrap !important;
+  }
+}
+
+.exec--wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.title--container {
+  width: 50% !important;
+}
+
+.exec--container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: $medQuery) {
+  .article--content--item {
+    * {
+      font-family: Arial, 宋体;
+      font-weight: 600;
+      margin-bottom: $sm-margin;
+      white-space: pre-line !important;
+      // word-break: break-all;
+      white-space: pre-wrap !important;
+      font-size: $body-1--font-sz;
+      line-height: $body--line--height;
+    }
+  }
+}

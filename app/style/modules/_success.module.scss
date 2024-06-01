@@ -1,0 +1,75 @@
+@import "../base/variables";
+@import "../framework/grid";
+
+// Success Page
+.success--content--wrapper {
+    .cta--wrapper{
+        display: flex;
+        .hr--wrapper{
+            display: flex;
+            height: 100%;
+            align-self: center;
+            width: 100%;
+            hr{
+                width: 100%;
+            }
+        }
+    }
+    .type--content{
+        display: flex;
+        z-index: 10 !important;
+        color: $primary--white;
+        margin-bottom: $lrg-margin;
+        .lead--wrapper{
+            height: 100%;
+            align-self: center;
+            display: flex;
+            margin-left: $lrg-margin;
+            *{
+                margin: auto;
+            }
+        }
+    }
+    h1,p {
+        display: block;
+        z-index: 10 !important;
+        color: $primary--white;
+    }
+}
+
+.content--container{
+    margin: auto 0;
+    hr{
+        z-index: 99;
+    }
+}
+
+.background--asset {
+    background-image: url("../../public/images/interior/unsplash_rEJxpBskj3Q.webp");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    position: absolute; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+
+}
+
+.overlay--texture {
+    position: absolute; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}

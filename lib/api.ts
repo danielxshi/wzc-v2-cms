@@ -5,13 +5,8 @@ const POST_GRAPHQL_FIELDS = `
     url
   }
   date
-  author {
-    name
-    picture {
-      url
-    }
-  }
   excerpt
+  category
   content {
     json
     links {

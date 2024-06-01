@@ -1,0 +1,113 @@
+@import '../base/variables';
+
+.project--details--container {
+  grid-column-start: $grid--start;
+  grid-column-end: $grid--end;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .article--heading, .project--info--wrapper {
+    margin-bottom: $lrg-margin;
+  }
+  :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+.project--info--wrapper {
+  // margin-top: $lrg-margin;
+  display: flex;
+  :first-child {
+    margin-right: $sm-margin;
+  }
+  div {
+    :first-child {
+      margin-bottom: $xs-margin;
+    }
+  }
+}
+.project--info {
+  * {
+    margin: 0 !important;
+  }
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+}
+
+.article--heading {
+  text-align: center;
+  h4 {
+    margin-bottom: $sm-margin;
+  }
+}
+
+.carousel .thumb img {
+  height: 100% !important;
+  width: auto !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.carousel .slide img {
+  max-height: 300px;  /* change this to whatever you want */
+  width: auto;
+}
+
+.image--contain {
+  max-height: 1080px;
+  img{
+    // height: 100% !important;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .slide img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100% !important;
+    width: auto;    
+  }
+  .thumb img {
+    width: 100% !important;
+    height: 100% !important;
+
+  }
+}
+
+
+@media only screen and (max-width: $minQuery) {
+  .image--contain {
+    max-height: 200px;
+    .slide img{
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100% !important;
+      width: auto;    
+    }
+    .thumb img {
+      width: 100% !important;
+      height: 100% !important;
+
+    }
+  }
+  
+  .image--contain .thumb img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.image--contain .slide img {
+    max-height: 300px;  /* change this to whatever you want */
+    width: auto;
+}
+  .project--info--wrapper{
+    flex-direction: column;
+    div{
+      margin-bottom: $sm-margin;
+    }
+  }
+}

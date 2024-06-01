@@ -27,21 +27,15 @@ export default async function PostPage({
 
   return (
     <div className="container mx-auto px-5">
-      <h2 className="mb-20 mt-8 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-        <Link href="/" className="hover:underline">
-          Blog
-        </Link>
-        .
-      </h2>
       <article>
-        <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
+        <h1 className="mb-12 mt-36 uppercase text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-4xl md:leading-none lg:text-7xl">
           {post.title}
         </h1>
-        <div className="hidden md:mb-12 md:block">
+        {/* <div className="hidden md:mb-12 md:block">
           {post.author && (
             <Avatar name={post.author.name} picture={post.author.picture} />
           )}
-        </div>
+        </div> */}
         <div className="mb-8 sm:mx-0 md:mb-16">
           <CoverImage title={post.title} url={post.coverImage.url} />
         </div>
