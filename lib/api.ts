@@ -41,7 +41,9 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
     },
   );
   const json = await response.json();
-  console.log("GraphQL Response: " + JSON.stringify(json));
+  const keys = (Object.keys(json["data"]["postCollection"]["items"][0]));
+  // console.log("GraphQL Response: " + JSON.stringify(json));
+  console.log("Object Keys " + JSON.stringify(keys))
   return json;
 }
 
