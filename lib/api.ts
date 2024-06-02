@@ -60,20 +60,29 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
 }
 
 export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
-  const query = 
-    `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${isDraftMode}, limit: 10) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
+  const allPosts = [];
+  const pageLimit = 40;
+  let currentPage = [];
+  let pageIndex = 0;
+  do {
+      const offset = pageIndex * pageLimit;
+      const query = 
+        `query {
+          postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${isDraftMode}, limit: ${pageLimit}, skip: ${offset}) {
+            items {
+              ${POST_GRAPHQL_FIELDS}
+            }
+          }
+        }`;
+      const response = await executeGraphQLQuery(query, isDraftMode);
+      const json = await response.json();
+      currentPage = json?.data?.postCollection?.items
+      if (!currentPage) {
+          console.error(`Failed to retrieve posts [isDraftMode=${isDraftMode}]: ${JSON.stringify(json)}`);
+          return [];
       }
-    }`;
-  const response = await executeGraphQLQuery(query, isDraftMode);
-  const json = await response.json();
-  const posts = json?.data?.postCollection?.items
-  if (!posts) {
-      console.error(`Failed to retrieve posts [isDraftMode=${isDraftMode}]: ${JSON.stringify(json)}`);
-      return [];
-  }
-  return posts;
+      allPosts.push(...currentPage)
+      pageIndex++;
+  } while (currentPage.length === pageLimit)
+  return allPosts;
 }
