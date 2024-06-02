@@ -13,13 +13,12 @@ export async function generateStaticParams() {
   }));
 }
 
-// TODO: interface needed for props
 export default async function PostPage(
     { params, }: { params: { slug: string } }
 ) {
   const { isEnabled } = draftMode();
   const posts = await getAllPosts(isEnabled);
-  const mainPost = posts.find(post => post.slug === params.slug);
+  const mainPost = posts.find(post => post.slug === params.slug)!;
   const additionalPosts = posts.filter(post => post.slug !== params.slug);
 
   return (
@@ -28,12 +27,12 @@ export default async function PostPage(
         <div className={style["article--detail--page"]}>
           <div className="grid--container">
             <ArticleDetailSection
-              category={mainPost?.category?.["category"]}
-              subCategory={mainPost?.category?.["sub"]}
-              articleTitle={mainPost?.title}
+              category={mainPost.category?.["category"]}
+              subCategory={mainPost.category?.["sub"]}
+              articleTitle={mainPost.title}
             >
               <div className={style["article--content--item"]}>
-                <Markdown content={mainPost?.content} />
+                <Markdown content={mainPost.content} />
               </div>
             </ArticleDetailSection>
           </div>

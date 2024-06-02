@@ -38,7 +38,6 @@ const renderSwitch = (params: any) => {
 export default async function Information({}) {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
-  console.log(allPosts);
   const morePosts = allPosts.slice(0);
   return (
     <NewsLayout>

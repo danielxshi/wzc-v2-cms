@@ -23,21 +23,6 @@ const POST_GRAPHQL_FIELDS = `
   }
 `;
 
-interface ContentfulPost {
-    slug?: string;
-    title?: string;
-    coverImage?: { url: string };
-    date?: string;
-    excerpt?: string;
-    category?: string;
-    content?: PostContent;
-}
-
-interface PostContent {
-    json?: any;
-    links?: any;
-}
-
 async function executeGraphQLQuery(query: string, preview = false): Promise<Response> {
   const accessTokens = preview
     ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
@@ -56,7 +41,7 @@ async function executeGraphQLQuery(query: string, preview = false): Promise<Resp
   );
 }
 
-export async function getPreviewPostBySlug(slug: string | null): Promise<ContentfulPost> {
+export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
   const query =
     `query {
       postCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
@@ -71,10 +56,10 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<Content
   if (!post) {
       console.error(`Failed to retrieve preview post ${slug}: ${JSON.stringify(json)}`);
   }
-  return post as ContentfulPost;
+  return post;
 }
 
-export async function getAllPosts(isDraftMode: boolean): Promise<ContentfulPost[]> {
+export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
   const query = 
     `query {
       postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${isDraftMode}, limit: 10) {
@@ -90,5 +75,5 @@ export async function getAllPosts(isDraftMode: boolean): Promise<ContentfulPost[
       console.error(`Failed to retrieve posts [isDraftMode=${isDraftMode}]: ${JSON.stringify(json)}`);
       return [];
   }
-  return posts as ContentfulPost[];
+  return posts;
 }
