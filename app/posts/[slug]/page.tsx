@@ -38,7 +38,7 @@ export default async function PostPage({
               articleTitle={post.title}
             >
               <div className={style["article--content--item"]}>
-                <Markdown content={post.content} />
+                <Markdown content={post?.content} />
               </div>
             </ArticleDetailSection>
             {/* <CurrentNews /> */}
