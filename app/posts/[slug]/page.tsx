@@ -1,15 +1,9 @@
-import Link from "next/link";
 import { draftMode } from "next/headers";
-
+import { getAllPosts } from "@/lib/api";
+import { Markdown } from "@/lib/markdown";
+import style from "../../style/modules/_articles.module.scss";
 import MoreStories from "../../more-stories";
 import ArticleDetailSection from "../../components/article/ArticleDetailSection";
-import style from "../../style/modules/_articles.module.scss";
-
-import { Markdown } from "@/lib/markdown";
-import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
-
-// temp category
-const category = "信息资讯";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -19,13 +13,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// TODO: interface needed for props
+export default async function PostPage(
+    { params, }: { params: { slug: string } }
+) {
   const { isEnabled } = draftMode();
-  const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
+  const posts = await getAllPosts(isEnabled);
+  const mainPost = posts.find(post => post.slug === params.slug);
+  const additionalPosts = posts.filter(post => post.slug !== params.slug);
 
   return (
     <div className="container mx-auto px-5">
@@ -33,22 +28,18 @@ export default async function PostPage({
         <div className={style["article--detail--page"]}>
           <div className="grid--container">
             <ArticleDetailSection
-              category={post.category["category"]}
-              subCategory={post.category["sub"]}
-              articleTitle={post.title}
+              category={mainPost?.category?.["category"]}
+              subCategory={mainPost?.category?.["sub"]}
+              articleTitle={mainPost?.title}
             >
               <div className={style["article--content--item"]}>
-                <Markdown content={post.content} />
+                <Markdown content={mainPost?.content} />
               </div>
             </ArticleDetailSection>
-            {/* <CurrentNews /> */}
-            {/* <SideNews category={category}>
-              {renderSwitch2(currentItem.categoryClass)}
-            </SideNews> */}
           </div>
         </div>
       </div>
-      <MoreStories morePosts={morePosts} />
+      <MoreStories morePosts={additionalPosts} />
     </div>
   );
 }

@@ -23,98 +23,72 @@ const POST_GRAPHQL_FIELDS = `
   }
 `;
 
-async function fetchGraphQL(query: string, preview = false): Promise<any> {
-  const response = await fetch(
+interface ContentfulPost {
+    slug?: string;
+    title?: string;
+    coverImage?: { url: string };
+    date?: string;
+    excerpt?: string;
+    category?: string;
+    content?: PostContent;
+}
+
+interface PostContent {
+    json?: any;
+    links?: any;
+}
+
+async function executeGraphQLQuery(query: string, preview = false): Promise<Response> {
+  const accessTokens = preview
+    ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    : process.env.CONTENTFUL_ACCESS_TOKEN
+  return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          preview
-            ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-            : process.env.CONTENTFUL_ACCESS_TOKEN
-        }`,
+        Authorization: `Bearer ${accessTokens}`,
       },
       body: JSON.stringify({ query }),
       next: { tags: ["posts"] },
     },
   );
-  const json = await response.json();
-  const keys = (Object.keys(json?.data?.postCollection?.items?.[0]));
-  // console.log("GraphQL Response: " + JSON.stringify(json));
-  console.log("Object Keys " + JSON.stringify(keys))
-  return json;
 }
 
-function extractPost(fetchResponse: any): any {
-  return fetchResponse?.data?.postCollection?.items?.[0];
-}
-
-function extractPostEntries(fetchResponse: any): any[] {
-  return fetchResponse?.data?.postCollection?.items;
-}
-
-export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
-  const entry = await fetchGraphQL(
+export async function getPreviewPostBySlug(slug: string | null): Promise<ContentfulPost> {
+  const query =
     `query {
       postCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
       }
-    }`,
-    true,
-  );
-  return extractPost(entry);
+    }`;
+  const response = await executeGraphQLQuery(query, true);
+  const json = await response.json();
+  const post = json?.data?.postCollection?.items?.[0];
+  if (!post) {
+      console.error(`Failed to retrieve preview post ${slug}: ${JSON.stringify(json)}`);
+  }
+  return post as ContentfulPost;
 }
 
-export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
-  const entries = await fetchGraphQL(
+export async function getAllPosts(isDraftMode: boolean): Promise<ContentfulPost[]> {
+  const query = 
     `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
-        isDraftMode ? "true" : "false"
-      }) {
+      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${isDraftMode}, limit: 10) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
       }
-    }`,
-    isDraftMode,
-  );
-  return extractPostEntries(entries);
-}
-
-export async function getPostAndMorePosts(
-  slug: string,
-  preview: boolean,
-): Promise<any> {
-  const entry = await fetchGraphQL(
-    `query {
-      postCollection(where: { slug: "${slug}" }, preview: ${
-        preview ? "true" : "false"
-      }, limit: 1) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    preview,
-  );
-  const entries = await fetchGraphQL(
-    `query {
-      postCollection(where: { slug_not_in: "${slug}" }, order: date_DESC, preview: ${
-        preview ? "true" : "false"
-      }, limit: 2) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    preview,
-  );
-  return {
-    post: extractPost(entry),
-    morePosts: extractPostEntries(entries),
-  };
+    }`;
+  const response = await executeGraphQLQuery(query, isDraftMode);
+  const json = await response.json();
+  const posts = json?.data?.postCollection?.items
+  if (!posts) {
+      console.error(`Failed to retrieve posts [isDraftMode=${isDraftMode}]: ${JSON.stringify(json)}`);
+      return [];
+  }
+  return posts as ContentfulPost[];
 }

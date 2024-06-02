@@ -1,28 +1,17 @@
 import NewsLayout from "../../components/layouts/NewsLayout";
-// import ArticleMessages from "../../components/JSON/Articles/info/InfoMasterMessages";
-import React, { useState, useEffect } from "react";
-import CoverImage from "../../cover-image";
-import Avatar from "../../avatar";
 import { MoreStories51 } from "../../more-stories";
 
 import { draftMode } from "next/headers";
 import { getAllPosts } from "@/lib/api";
-import { CMS_NAME, CMS_URL } from "@/lib/constants";
-import Paginate from "../../components/article/PaginateItems";
 import SideNews from "../../components/organisms/SideNews";
 import MenuItems from "../../JSON/MenuItems";
-// import { useLocation } from 'react-router-dom';
 import Link from "next/link";
 import style from "@/app/style/modules/_nav.module.scss";
-import ArticleListItem from "@/app/components/article/ArticleListItem";
 
 const category = "信息资讯";
 
-const renderSwitch = (params) => {
-  // const router = useLocation();
-  // if (!params) {
-  //   return "";
-  // }
+// TODO: interface needed
+const renderSwitch = (params: any) => {
   const keys = Object.keys(params);
   const value = params[keys[0]];
 
@@ -30,13 +19,10 @@ const renderSwitch = (params) => {
     case "info":
       return (
         <div>
-          {value.map((obj, index) => (
+          {value.map((obj: any, index: number) => (
             <div className={style["menu--item--container"]}>
               <Link href={obj.url}>
-                <span
-                  key={index}
-                  // className={location.pathname == `${obj.url}` ? "subactive" : ""}
-                >
+                <span key={index}>
                   {obj.subtitle}
                 </span>
               </Link>
@@ -44,7 +30,6 @@ const renderSwitch = (params) => {
           ))}
         </div>
       );
-
     default:
       return "";
   }
@@ -53,16 +38,14 @@ const renderSwitch = (params) => {
 export default async function Information({}) {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
-
+  console.log(allPosts);
   const morePosts = allPosts.slice(0);
   return (
     <NewsLayout>
       <div className="row-start-1 col-span-8">
         <h3 className="text-2xl">{category}</h3>
-
         <MoreStories51 morePosts={morePosts} />
       </div>
-
       <SideNews category={category}>
         <ul>
           {MenuItems.SideNavMenuItems.map((items, index) => {
