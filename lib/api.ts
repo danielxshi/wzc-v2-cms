@@ -41,6 +41,7 @@ async function executeGraphQLQuery(query: string, preview = false): Promise<Resp
   );
 }
 
+// TODO: define some appropriate interfaces
 export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
   const query =
     `query {
