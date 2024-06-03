@@ -39,7 +39,7 @@ function LandingDesktop() {
         {MenuItems.LandingCarousel.map((item, index) => {
           return (
             <SplideSlide key={index} className="min-h-screen w-full">
-              <ContentfulImage
+              {/* <ContentfulImage
                 className="d-block w-100 h-100"
                 src={require(`@/app/public${item.src}`)}
                 // fallbackSrc={item.fallback}
@@ -47,7 +47,16 @@ function LandingDesktop() {
                 layout="fill"
                 objectFit="cover"
                 priority
-              />
+              /> */}
+              <ContentfulImage
+                  objectFit="cover"
+                  layout="fill"
+                  src={require(`@/app/public${item.src}`)}
+                  // src={test}
+                  alt={item.alt}
+                  priority
+                  className={style["logo"]}
+                />
             </SplideSlide>
           );
         })}
