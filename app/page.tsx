@@ -44,7 +44,7 @@ const content = [
 function LandingDesktop() {
   return (
     <section>
-      <Splide
+      {/* <Splide
         style={{
           display: "flex",
           justifyContent: "center",
@@ -61,19 +61,13 @@ function LandingDesktop() {
             pauseOnFocus: false,
           },
         }}
-      >
+      > */}
+      <div className="flex h-screen">
+
+
         {LandingMenuItems.LandingCarousel.map((item, index) => {
           return (
-            <SplideSlide key={index} className="min-h-screen w-full h-screen">
-              {/* <ContentfulImage
-                className="d-block w-100 h-100"
-                src={require(`@/app/public${item.src}`)}
-                // fallbackSrc={item.fallback}
-                alt={item.alt}
-                layout="fill"
-                objectFit="cover"
-                priority
-              /> */}
+            // <SplideSlide key={index} className="min-h-screen w-full h-screen">
               <ContentfulImage
                 objectFit="cover"
                 layout="fill"
@@ -85,10 +79,11 @@ function LandingDesktop() {
                 priority
                 className={style["logo"]}
               />
-            </SplideSlide>
+            // </SplideSlide>
           );
         })}
-      </Splide>
+      </div>
+      {/* </Splide> */}
       <div className={style["overlay"]}></div>
 
       <div className={style["logo--container--wrapper"]}>
