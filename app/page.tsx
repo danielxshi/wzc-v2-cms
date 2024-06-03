@@ -77,7 +77,6 @@ function LandingDesktop() {
                   priority
                   className={style["logo"]}
                 />
-                //{" "}
               </SplideSlide>
             );
           })}

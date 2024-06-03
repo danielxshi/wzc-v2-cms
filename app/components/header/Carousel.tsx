@@ -27,9 +27,9 @@ export default function Carousel() {
           },
         }}
       >
-        {LandingMenuItems.LandingCarousel.map((item, index) => {
+        {LandingMenuItems.Carousel.map((item, index) => {
           return (
-            <SplideSlide key={index} className="min-h-screen w-full h-screen">
+            <SplideSlide key={index} className=" w-full block h-[50vh]">
               <ContentfulImage
                 objectFit="cover"
                 layout="fill"
@@ -40,7 +40,11 @@ export default function Carousel() {
                 // alt={item.alt}
                 priority
               />
-              //{" "}
+              <div className="flex w-full h-full align-bottom text-center z-100 justify-center">
+                <p className="carousel-text text-6xl z-[1000] bottom-0 mt-auto mb-16 h-fit text-white">
+                  {item.text}
+                </p>
+              </div>
             </SplideSlide>
           );
         })}

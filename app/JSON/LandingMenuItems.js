@@ -50,6 +50,28 @@ const LandingCarousel = [
   },
 ];
 
+const Carousel = [
+  {
+    src: "/images/hero.png",
+    // fallback: "/images/pexels-james-wheeler-2782485.webp",
+    text: "2021活动",
+    alt: "Slide",
+  },
+
+  {
+    src: "/images/hero2.png",
+    // fallback: "/images/pexels-james-wheeler-2782485.webp",
+    text: "2022活动",
+    alt: "Slide",
+  },
+  {
+    src: "/images/hero3.png",
+    text: "2021活动",
+    // fallback: "/images/pexels-james-wheeler-2782485.webp",
+    alt: "Slide",
+  },
+];
+
 const LandingTopBar = [
   {
     title: "同乡总会热线",
@@ -66,6 +88,7 @@ const LandingMenuItems = {
   LandingCarousel: LandingCarousel,
   LandingTopBar: LandingTopBar,
   MenuItems: MenuItems,
+  Carousel: Carousel,
 };
 
 export default LandingMenuItems;
