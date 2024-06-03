@@ -44,43 +44,45 @@ const content = [
 function LandingDesktop() {
   return (
     <section>
-      <Splide
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh"
-        }}
-        options={{
-          type: LOOP,
-          autoplay: true,
-          rewind: true,
-          easing: "linear",
-          autoScroll: {
-            speed: 6000,
-            pauseOnHover: true,
-            pauseOnFocus: false,
-          },
-        }}
-      >
-        {LandingMenuItems.LandingCarousel.map((item, index) => {
-          return (
-            // <SplideSlide key={index} className="min-h-screen w-full h-screen">
-              <ContentfulImage
-                objectFit="cover"
-                layout="fill"
-                // src={item.image}
-                // src={require(`${item.image}`)}
-                src={require(`@/app/public${item.src}`)}
-                // src={test}
-                // alt={item.alt}
-                priority
-                className={style["logo"]}
-              />
-            // </SplideSlide>
-          );
-        })}
-      </Splide>
+      <div className="h-screen">
+        <Splide
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          options={{
+            type: LOOP,
+            autoplay: true,
+            rewind: true,
+            easing: "linear",
+            autoScroll: {
+              speed: 6000,
+              pauseOnHover: true,
+              pauseOnFocus: false,
+            },
+          }}
+        >
+          {LandingMenuItems.LandingCarousel.map((item, index) => {
+            return (
+              <SplideSlide key={index} className="min-h-screen w-full h-screen">
+                <ContentfulImage
+                  objectFit="cover"
+                  layout="fill"
+                  // src={item.image}
+                  // src={require(`${item.image}`)}
+                  src={require(`@/app/public${item.src}`)}
+                  // src={test}
+                  // alt={item.alt}
+                  priority
+                  className={style["logo"]}
+                />
+                //{" "}
+              </SplideSlide>
+            );
+          })}
+        </Splide>
+      </div>
       <div className={style["overlay"]}></div>
 
       <div className={style["logo--container--wrapper"]}>
