@@ -12,9 +12,8 @@ import React from "react";
 import "@splidejs/react-splide/css";
 import { LOOP } from "@splidejs/splide";
 import logo from "@/app/public/images/logos/white-logo.png";
-import test from "@/app/public/images/wzc4-mob-nav4.webp"
-import car1 from "@/app/public/images/pexels-james-wheeler-2782485.jpg"
-
+import test from "@/app/public/images/wzc4-mob-nav4.webp";
+import car1 from "@/app/public/images/pexels-james-wheeler-2782485.jpg";
 
 const content = [
   {
@@ -40,7 +39,6 @@ const content = [
     textTwo: "text",
   },
 ];
-
 
 function LandingDesktop() {
   return (
@@ -76,14 +74,14 @@ function LandingDesktop() {
                 priority
               /> */}
               <ContentfulImage
-                  objectFit="cover"
-                  layout="fill"
-                  src={item.image}
-                  // src={test}
-                  // alt={item.alt}
-                  priority
-                  className={style["logo"]}
-                />
+                objectFit="cover"
+                layout="fill"
+                src={(item.image)}
+                // src={test}
+                // alt={item.alt}
+                priority
+                className={style["logo"]}
+              />
             </SplideSlide>
           );
         })}
