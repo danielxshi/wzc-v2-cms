@@ -27,7 +27,7 @@ function Post({
       title={title}
       date={date}
       src={coverImage.url}
-      URL={`/article/${slug}`}
+      URL={`/posts/${slug}`}
     ></CurrentNewsItem>
   );
 }

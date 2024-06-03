@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { getAllPosts } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
 import style from "../../style/modules/_articles.module.scss";
+import style2 from "@/app/style/modules/_nav.module.scss";
 import MoreStories from "../../more-stories";
 import ArticleDetailSection from "../../components/article/ArticleDetailSection";
 import Link from "next/link";
@@ -31,7 +32,7 @@ const renderSwitch = (params) => {
       return (
         <div>
           {value.map((obj, index) => (
-            <div className={style["menu--item--container"]}>
+            <div className={style2["menu--item--container"]}>
               <Link href={obj.url}>
                 <span
                   key={index}
@@ -50,13 +51,15 @@ const renderSwitch = (params) => {
   }
 };
 
-export default async function PostPage(
-    { params, }: { params: { slug: string } }
-) {
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { isEnabled } = draftMode();
   const posts = await getAllPosts(isEnabled);
-  const mainPost = posts.find(post => post.slug === params.slug)!;
-  const additionalPosts = posts.filter(post => post.slug !== params.slug);
+  const mainPost = posts.find((post) => post.slug === params.slug)!;
+  const additionalPosts = posts.filter((post) => post.slug !== params.slug);
 
   return (
     <div className="container mx-auto px-5">
@@ -73,13 +76,13 @@ export default async function PostPage(
               </div>
             </ArticleDetailSection>
 
-      <SideNews category={category}>
-        <ul>
-          {MenuItems.SideNavMenuItems.map((items, index) => {
-            return <div key={index}>{renderSwitch(items)}</div>;
-          })}
-        </ul>
-      </SideNews>
+            <SideNews category={category}>
+              <ul>
+                {MenuItems.SideNavMenuItems.map((items, index) => {
+                  return <div key={index}>{renderSwitch(items)}</div>;
+                })}
+              </ul>
+            </SideNews>
           </div>
         </div>
       </div>
