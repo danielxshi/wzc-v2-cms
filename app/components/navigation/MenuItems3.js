@@ -1,7 +1,7 @@
-"use client";
+// "use client";
 import style from "../../style/modules/_nav.module.scss";
 import MenuMessages from "../../JSON/MenuItems";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -22,13 +22,13 @@ const renderSwitch = (params) => {
             <div key={index} className="dropdown">
               <Link
                 className={
-                  { router } == `${item.url}` ||
-                  { router } == `${item.p1}` ||
-                  { router } == `${item.p2}` ||
-                  { router } == `${item.p3}` ||
-                  { router } == `${item.p4}` ||
-                  { router } == `${item.p5}` ||
-                  { router } == `${item.p6}`
+                  router == `${item.url}` ||
+                  router == `${item.p1}` ||
+                  router == `${item.p2}` ||
+                  router == `${item.p3}` ||
+                  router == `${item.p4}` ||
+                  router == `${item.p5}` ||
+                  router == `${item.p6}`
                     ? "active"
                     : ""
                 }
@@ -39,11 +39,19 @@ const renderSwitch = (params) => {
               <ul className="dropdown-content">
                 {item.submenu.map((item2, index2) => {
                   return (
-                    <Link className="whitespace-nowrap" href={item2.url}>
-                      {/* key={index2} */}
-                      {/* className= */}
-                      {{ router } == `${item2.url}` ? "superactive" : ""}
+                    <Link
+                      key={index2}
+                      // className="whitespace-nowrap"
+                      className={router == `${item2.url}` ? "superactive" : ""}
+                      href={item2.url}
+                    >
+                      {/* <span
+                        className={
+                          router  == `${item2.url}` ? "superactive" : ""
+                        }
+                      > */}
                       {item2.subtitle}
+                      {/* </span> */}
                     </Link>
                   );
                 })}

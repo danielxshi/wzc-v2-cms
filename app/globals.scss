@@ -2,13 +2,17 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "../app/style/base/variables";
+
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  // background-color: $nav-bg-color;
-  z-index: 1;
-  // margin-top: 16px;
+.dropdown-content a {
+  border: none;
+  position: relative;
+  // display: inline-block;
+  align-content: center;
+  align-items: center;
+  margin: 0 !important;
+  // padding-bottom: 16px;
 }
 
 .splide__track {
@@ -40,8 +44,8 @@ small {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover,
 .superactive {
-  // background-color: $hover--blue;
-  // color: $primary--white;
+  background-color: $hover--blue;
+  color: $primary--white;
 }
 
 /* Show the dropdown menu on hover */
@@ -796,8 +800,10 @@ a:hover,
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover,
 .superactive {
-  background-color: $hover--blue;
-  color: $primary--white;
+  * {
+    background-color: $hover--blue;
+    color: $primary--white;
+  }
 }
 
 /* Show the dropdown menu on hover */
