@@ -77,7 +77,7 @@ function LandingDesktop() {
                 objectFit="cover"
                 layout="fill"
                 // src={item.image}
-                src={require(`@/app/public${item.image}`)}
+                src={require(`${item.image}`)}
                 // src={test}
                 // alt={item.alt}
                 priority
