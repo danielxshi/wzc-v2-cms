@@ -64,7 +64,9 @@ function Local() {
                   category={category}
                   title={currentItems.article.title}
                   date={currentItems.article.date}
-                  imgSRC={currentItems.article.imageURL}
+                  // imgSRC={currentItems.article.imageURL}
+                  imgSRC={require(`@/app/public${currentItems.article.imageURL}`)}
+
                   URL={currentItems.article.link}
                 ></LocalItem>
               </div>

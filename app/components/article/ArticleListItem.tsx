@@ -40,7 +40,7 @@ export function LocalItem({
           style["article--list--item"],
         ].join(" flex")}
       >
-        <div className={[style["article--list--image--container"]].join("")}>
+        <div className={[style["article--list--image--container"], ["hidden sm:block w-full md:w-[300px]"]].join(" ")}>
           {image}
         </div>
         <div className="w-9/12 ml-8 mt-2 mb-2 mr-8">
