@@ -46,6 +46,7 @@ function LandingDesktop() {
                 alt={item.alt}
                 layout="fill"
                 objectFit="cover"
+                priority
               />
             </SplideSlide>
           );
