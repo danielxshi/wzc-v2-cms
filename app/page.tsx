@@ -44,11 +44,12 @@ const content = [
 function LandingDesktop() {
   return (
     <section>
-      {/* <Splide
+      <Splide
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          height: "100vh"
         }}
         options={{
           type: LOOP,
@@ -61,10 +62,7 @@ function LandingDesktop() {
             pauseOnFocus: false,
           },
         }}
-      > */}
-      <div className="flex h-screen">
-
-
+      >
         {LandingMenuItems.LandingCarousel.map((item, index) => {
           return (
             // <SplideSlide key={index} className="min-h-screen w-full h-screen">
@@ -82,8 +80,7 @@ function LandingDesktop() {
             // </SplideSlide>
           );
         })}
-      </div>
-      {/* </Splide> */}
+      </Splide>
       <div className={style["overlay"]}></div>
 
       <div className={style["logo--container--wrapper"]}>
