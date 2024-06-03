@@ -34,17 +34,17 @@ const MenuItems = [
 
 const LandingCarousel = [
   {
-    src: "https://images.pexels.com/photos/18791405/pexels-photo-18791405/free-photo-of-view-of-boats-in-false-creek-harbor-in-vancouver-british-columbia-canada.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    src: "/images/pexels-james-wheeler-2782485.webp",
     fallback: "/images/pexels-james-wheeler-2782485.webp",
     alt: "Slide",
   },
   {
-    src: "https://images.pexels.com/photos/2782485/pexels-photo-2782485.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "/images/pexels-onur-kurtic-205377.webp",
     fallback: "/images/pexels-onur-kurtic-205377.webp",
     alt: "Slide",
   },
   {
-    src: "https://images.pexels.com/photos/205377/pexels-photo-205377.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "/images/pexels-jeremy-lee-11424500.webp",
     fallback: "/images/pexels-jeremy-lee-11424500.webp",
     alt: "Slide",
   },

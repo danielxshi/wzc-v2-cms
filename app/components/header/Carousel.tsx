@@ -32,7 +32,7 @@ export default function Carousel() {
             <SplideSlide key={index} className="min-h-screen w-full">
               <ContentfulImage
                 className="d-block w-100 h-100"
-                src={item.src}
+                src={require(`@/app/public${item.src}`)}
                 fallbackSrc={item.fallback}
                 alt={item.alt}
                 layout="fill"
