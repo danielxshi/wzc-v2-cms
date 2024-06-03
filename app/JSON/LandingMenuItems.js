@@ -10,19 +10,19 @@ const MenuItems = [
     title: "信息资讯   ",
     src: "/images/wzc4-mob-nav5.webp",
     alt: "",
-    link: "/about/council",
+    link: "/about",
   },
   {
     title: "活动分享   ",
     src: "/images/wzc4-mob-nav4.webp",
     alt: "",
-    link: "/events/events",
+    link: "/events",
   },
   {
     title: "文化园地   ",
     src: "/images/wzc4-mob-nav3.webp",
     alt: "",
-    link: "/culture/CulturalPark",
+    link: "/culture",
   },
   {
     title: "联系   ",

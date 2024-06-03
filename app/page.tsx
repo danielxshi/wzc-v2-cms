@@ -76,7 +76,8 @@ function LandingDesktop() {
               <ContentfulImage
                 objectFit="cover"
                 layout="fill"
-                src={test}
+                // src={item.image}
+                src={require(`@/app/public${item.image}`)}
                 // src={test}
                 // alt={item.alt}
                 priority
