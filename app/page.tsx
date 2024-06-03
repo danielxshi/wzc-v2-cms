@@ -44,7 +44,7 @@ const content = [
 function LandingDesktop() {
   return (
     <section>
-      <div className="h-screen">
+      <div className="h-screen w-screen">
         <Splide
           style={{
             display: "flex",
