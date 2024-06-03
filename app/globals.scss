@@ -11,6 +11,17 @@
   // margin-top: 16px;
 }
 
+small {
+  max-width: 14ch;
+  width: 9rch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // text-overflow:clip;
+  // text-overflow: -o-ellipsis-lastline;
+
+}
+
 /* Links inside the dropdown */
 .dropdown-content a {
   white-space: nowrap;

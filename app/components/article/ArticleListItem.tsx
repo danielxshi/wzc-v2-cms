@@ -94,7 +94,7 @@ export default function ArticleListItem({
         <div className="w-9/12 ml-8 mt-2 mb-2 mr-8">
           <h4 className="text-base">{title}</h4>
           <p className="mb-4">{textPreview}</p>
-          <small className="">{date}</small>
+          <small className="date">{date}</small>
           <br />
           {/* <small>{category["category"]}</small> */}
         </div>

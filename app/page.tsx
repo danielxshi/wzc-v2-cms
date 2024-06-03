@@ -12,6 +12,8 @@ import React from "react";
 import "@splidejs/react-splide/css";
 import { LOOP } from "@splidejs/splide";
 import logo from "@/app/public/images/logos/white-logo.png";
+import test from "@/app/public/images/wzc4-mob-nav4.webp"
+
 
 function LandingDesktop() {
   return (
@@ -143,7 +145,8 @@ function LandingNav() {
                 <ContentfulImage
                   objectFit="cover"
                   layout="fill"
-                  src={item.src}
+                  src={require(`@/app/public${item.src}`)}
+                  // src={test}
                   alt={item.alt}
                   priority
                   className={style["logo"]}
