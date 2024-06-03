@@ -43,7 +43,7 @@ const content = [
 function LandingDesktop() {
   return (
     <section>
-     <Splide
+      <Splide
         style={{
           display: "flex",
           justifyContent: "center",
@@ -63,14 +63,24 @@ function LandingDesktop() {
       >
         {content.map((item, index) => {
           return (
-            <SplideSlide key={index} className="lg:h-[700px] md:h-[500px] h-[400px]">
-              <ContentfulImage
-                className="d-block w-[80vw] h-100"
-                src={item.image}
+            <SplideSlide key={index} className="min-h-screen w-full">
+              {/* <ContentfulImage
+                className="d-block w-100 h-100"
+                src={require(`@/app/public${item.src}`)}
                 // fallbackSrc={item.fallback}
-                //   alt={item.alt}
+                alt={item.alt}
                 layout="fill"
                 objectFit="cover"
+                priority
+              /> */}
+              <ContentfulImage
+                objectFit="cover"
+                layout="fill"
+                src={test}
+                // src={test}
+                // alt={item.alt}
+                priority
+                className={style["logo"]}
               />
             </SplideSlide>
           );
