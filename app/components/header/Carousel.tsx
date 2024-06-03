@@ -29,15 +29,18 @@ export default function Carousel() {
       >
         {LandingMenuItems.LandingCarousel.map((item, index) => {
           return (
-            <SplideSlide key={index} className="min-h-screen w-full">
+            <SplideSlide key={index} className="min-h-screen w-full h-screen">
               <ContentfulImage
-                className="d-block w-100 h-100"
-                src={require(`@/app/public${item.src}`)}
-                fallbackSrc={item.fallback}
-                alt={item.alt}
-                layout="fill"
                 objectFit="cover"
+                layout="fill"
+                // src={item.image}
+                // src={require(`${item.image}`)}
+                src={require(`@/app/public${item.src}`)}
+                // src={test}
+                // alt={item.alt}
+                priority
               />
+              //{" "}
             </SplideSlide>
           );
         })}
