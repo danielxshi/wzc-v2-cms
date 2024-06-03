@@ -63,7 +63,7 @@ function LandingDesktop() {
       >
         {content.map((item, index) => {
           return (
-            <SplideSlide key={index} className="min-h-screen w-full">
+            <SplideSlide key={index} className="min-h-screen w-full h-screen">
               {/* <ContentfulImage
                 className="d-block w-100 h-100"
                 src={require(`@/app/public${item.src}`)}
