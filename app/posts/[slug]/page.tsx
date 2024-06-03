@@ -4,6 +4,9 @@ import { Markdown } from "@/lib/markdown";
 import style from "../../style/modules/_articles.module.scss";
 import MoreStories from "../../more-stories";
 import ArticleDetailSection from "../../components/article/ArticleDetailSection";
+import Link from "next/link";
+import MenuItems from "@/app/JSON/MenuItems";
+import SideNews from "@/app/components/organisms/SideNews";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -12,6 +15,40 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
+const category = "信息资讯";
+
+const renderSwitch = (params) => {
+  // const router = useLocation();
+  // if (!params) {
+  //   return "";
+  // }
+  const keys = Object.keys(params);
+  const value = params[keys[0]];
+
+  switch (keys[0]) {
+    case "info":
+      return (
+        <div>
+          {value.map((obj, index) => (
+            <div className={style["menu--item--container"]}>
+              <Link href={obj.url}>
+                <span
+                  key={index}
+                  // className={location.pathname == `${obj.url}` ? "subactive" : ""}
+                >
+                  {obj.subtitle}
+                </span>
+              </Link>
+            </div>
+          ))}
+        </div>
+      );
+
+    default:
+      return "";
+  }
+};
 
 export default async function PostPage(
     { params, }: { params: { slug: string } }
@@ -35,10 +72,18 @@ export default async function PostPage(
                 <Markdown content={mainPost.content} />
               </div>
             </ArticleDetailSection>
+
+      <SideNews category={category}>
+        <ul>
+          {MenuItems.SideNavMenuItems.map((items, index) => {
+            return <div key={index}>{renderSwitch(items)}</div>;
+          })}
+        </ul>
+      </SideNews>
           </div>
         </div>
       </div>
-      <MoreStories morePosts={additionalPosts} />
+      {/* <MoreStories morePosts={additionalPosts} /> */}
     </div>
   );
 }
