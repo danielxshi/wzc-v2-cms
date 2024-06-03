@@ -13,6 +13,33 @@ import "@splidejs/react-splide/css";
 import { LOOP } from "@splidejs/splide";
 import logo from "@/app/public/images/logos/white-logo.png";
 import test from "@/app/public/images/wzc4-mob-nav4.webp"
+import car1 from "@/app/public/images/pexels-james-wheeler-2782485.jpg"
+
+
+const content = [
+  {
+    name: "text",
+    page: 0,
+    image: car1,
+    textOne: "text",
+    textTwo: "text",
+  },
+  {
+    name: "text",
+
+    page: 1,
+    image: car1,
+    textOne: "text",
+    textTwo: "text",
+  },
+  {
+    name: "text",
+    page: 2,
+    image: car1,
+    textOne: "text",
+    textTwo: "text",
+  },
+];
 
 
 function LandingDesktop() {
@@ -36,7 +63,7 @@ function LandingDesktop() {
           },
         }}
       >
-        {MenuItems.LandingCarousel.map((item, index) => {
+        {content.map((item, index) => {
           return (
             <SplideSlide key={index} className="min-h-screen w-full">
               {/* <ContentfulImage
@@ -51,9 +78,9 @@ function LandingDesktop() {
               <ContentfulImage
                   objectFit="cover"
                   layout="fill"
-                  src={require(`@/app/public${item.src}`)}
+                  src={item.image}
                   // src={test}
-                  alt={item.alt}
+                  // alt={item.alt}
                   priority
                   className={style["logo"]}
                 />
