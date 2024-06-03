@@ -13,7 +13,7 @@ import "@splidejs/react-splide/css";
 import { LOOP } from "@splidejs/splide";
 import logo from "@/app/public/images/logos/white-logo.png";
 import test from "@/app/public/images/wzc4-mob-nav4.webp";
-import car1 from "@/app/public/images/pexels-james-wheeler-2782485.jpg";
+import car1 from "../app/public/images/pexels-james-wheeler-2782485.jpg";
 
 const content = [
   {
@@ -43,7 +43,7 @@ const content = [
 function LandingDesktop() {
   return (
     <section>
-      <Splide
+     <Splide
         style={{
           display: "flex",
           justifyContent: "center",
@@ -63,24 +63,14 @@ function LandingDesktop() {
       >
         {content.map((item, index) => {
           return (
-            <SplideSlide key={index} className="min-h-screen w-full">
-              {/* <ContentfulImage
-                className="d-block w-100 h-100"
-                src={require(`@/app/public${item.src}`)}
-                // fallbackSrc={item.fallback}
-                alt={item.alt}
-                layout="fill"
-                objectFit="cover"
-                priority
-              /> */}
+            <SplideSlide key={index} className="lg:h-[700px] md:h-[500px] h-[400px]">
               <ContentfulImage
-                objectFit="cover"
+                className="d-block w-[80vw] h-100"
+                src={item.image}
+                // fallbackSrc={item.fallback}
+                //   alt={item.alt}
                 layout="fill"
-                src={(item.image)}
-                // src={test}
-                // alt={item.alt}
-                priority
-                className={style["logo"]}
+                objectFit="cover"
               />
             </SplideSlide>
           );
