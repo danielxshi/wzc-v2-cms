@@ -14,6 +14,7 @@ import { LOOP } from "@splidejs/splide";
 import logo from "@/app/public/images/logos/white-logo.png";
 import test from "@/app/public/images/wzc4-mob-nav4.webp";
 import car1 from "../app/public/images/pexels-james-wheeler-2782485.jpg";
+import LandingMenuItems from "./JSON/LandingMenuItems";
 
 const content = [
   {
@@ -61,7 +62,7 @@ function LandingDesktop() {
           },
         }}
       >
-        {content.map((item, index) => {
+        {LandingMenuItems.LandingCarousel.map((item, index) => {
           return (
             <SplideSlide key={index} className="min-h-screen w-full h-screen">
               {/* <ContentfulImage
@@ -76,8 +77,9 @@ function LandingDesktop() {
               <ContentfulImage
                 objectFit="cover"
                 layout="fill"
-                src={item.image}
+                // src={item.image}
                 // src={require(`${item.image}`)}
+                src={require(`@/app/public${item.src}`)}
                 // src={test}
                 // alt={item.alt}
                 priority
