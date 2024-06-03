@@ -86,13 +86,14 @@ export default function ArticleListItem({
         className={[
           style["article--item--container"],
           style["article--list--item"],
+          [""]
         ].join(" flex")}
       >
-        <div className={[style["article--list--image--container"]].join("")}>
+        <div className={[style["article--list--image--container"], ["hidden sm:block w-full md:w-[300px]"]].join(" ")}>
           {image}
         </div>
         <div className="w-9/12 ml-8 mt-2 mb-2 mr-8">
-          <h4 className="text-base">{title}</h4>
+          <h4 className="text-base mt-4 md:mt-0">{title}</h4>
           <p className="mb-4">{textPreview}</p>
           <small className="date">{date}</small>
           <br />

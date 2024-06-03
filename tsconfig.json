@@ -24,6 +24,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/footer/Footer.js", "app/components/footer/FooterBottomBar.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/footer/Footer.js", "app/components/footer/FooterBottomBar.js", "app/components/contact/ContactModal.js"],
   "exclude": ["node_modules"]
 }
