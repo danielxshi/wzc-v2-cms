@@ -5,6 +5,8 @@ import Image from "next/image";
 import style2 from "../style/modules/_banner.module.scss";
 import { AiFillFile } from "react-icons/ai";
 import ContentfulImage from "@/lib/contentful-image";
+import Link from "next/link";
+import test from "@/app/public/test.pdf";
 
 export default function SelfIntro() {
   return (
@@ -62,13 +64,13 @@ export default function SelfIntro() {
                     </a>
 
                     <div className="button-pdf--wrapper">
-                      <a
+                      <Link
                         target="_blank"
-                        href="/pdf/20230128 声明-中英文.pdf"
+                        href="/test.pdf"
                         className="button-pdf mb-2 justify-center button-pdf text-base text-center mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                       >
                         <AiFillFile /> &nbsp; 公开声明
-                      </a>
+                      </Link>
                     </div>
                     <div className="button-pdf--wrapper">
                       <a

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import MenuItems from "../../JSON/MenuItems";
 
+
 export default function MobileMenu() {
   const [click, setClick] = useState(false);
   const router = useRouter();
@@ -57,8 +58,8 @@ export default function MobileMenu() {
                 key={index}
               >
                 <div className={style["mobile--menu--container"]}>
-                  {items.menu.map((item, index) => (
-                    <div key={index} className={style[""]}>
+                  {items.menu.map((item, index2) => (
+                    <div className={style[""]}>
                       <h4
                         className={[
                           style["link--header"],
@@ -66,13 +67,15 @@ export default function MobileMenu() {
                         ].join(" ")}
                       >
                         <Link
-                          key={index}
+                          key={index2}
                           className={
                             router.pathname == `${item.url}` ||
                             router.pathname == `${item.p1}` ||
                             router.pathname == `${item.p2}` ||
                             router.pathname == `${item.p3}` ||
-                            router.pathname == `${item.p4}`
+                            router.pathname == `${item.p4}` ||
+                            router.pathname == `${item.p5}` ||
+                            router.pathname == `${item.p6}`
                               ? "active"
                               : ""
                           }
@@ -82,16 +85,15 @@ export default function MobileMenu() {
                         </Link>
                       </h4>
                       <ul className="">
-                        {item.submenu.map((item2, index2) => {
+                        {item.submenu.map((item2, index3) => {
                           return (
                             <li>
                               <Link
                                 className="whitespace-nowrap text-white"
                                 href={item2.url}
-                                key={index2}
+                                key={index3}
                               >
                                 <span
-                                  key={index2}
                                   className={
                                     router.pathname == `${item2.url}`
                                       ? "superactive"
