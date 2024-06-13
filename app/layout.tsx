@@ -6,8 +6,8 @@ import Footer from "./components/footer/Footer";
 import DesktopNav from "./components/navigation/DesktopNavbar";
 
 export const metadata = {
-  title: `Next.js and ${CMS_NAME} Example`,
-  description: `This is a blog built with Next.js and ${CMS_NAME}.`,
+  title: `Wenzhou Friendship Society`,
+  description: `This is the website for the Wenzhou Friendship Society`,
 };
 
 const inter = Inter({
