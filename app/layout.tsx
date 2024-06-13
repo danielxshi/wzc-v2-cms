@@ -16,7 +16,6 @@ const inter = Inter({
   display: "swap",
 });
 
-
 export default function RootLayout({
   children,
 }: {

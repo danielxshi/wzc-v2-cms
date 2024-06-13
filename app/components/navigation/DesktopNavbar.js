@@ -61,7 +61,7 @@ export default function DesktopNavbar() {
           src={test}
           priority
         />
-        <Link passHref={true} href="/home" onClick={closeMobileMenu}>
+        <Link passHref={true} href="/" onClick={closeMobileMenu}>
           <div className="cursor-pointer ml-neg-1 text-left whitespace-nowrap">
             {MenuItems.CompanyNameCH}
             <br />
