@@ -69,6 +69,8 @@ export default function ArticleListItem({
   date: string;
   category: any;
 }) {
+  const slicedArray = date.slice(0, 10);
+
   const image = (
     <ContentfulImage
       // alt={`Cover Image for ${title}`}
@@ -95,7 +97,7 @@ export default function ArticleListItem({
         <div className="w-9/12 ml-8 mt-2 mb-2 mr-8">
           <h4 className="text-base mt-4 md:mt-0">{title}</h4>
           <p className="mb-4">{textPreview}</p>
-          <small className="date">{date}</small>
+          <small className="date">{slicedArray}</small>
           <br />
           {/* <small>{category["category"]}</small> */}
         </div>

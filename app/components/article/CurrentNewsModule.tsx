@@ -22,10 +22,12 @@ function Post({
   author: any;
   slug: string;
 }) {
+  const slicedArray = date.slice(0, 10);
+
   return (
     <CurrentNewsItem
       title={title}
-      date={date}
+      date={slicedArray}
       src={coverImage.url}
       URL={`/posts/${slug}`}
     ></CurrentNewsItem>
