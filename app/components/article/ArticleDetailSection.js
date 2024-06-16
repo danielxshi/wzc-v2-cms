@@ -11,7 +11,7 @@ function ArticleDetailSection(props) {
             当前位置:
             {/* home */}
             <span className="text-link-black" href="/">
-              首页
+            会长致辞
             </span>
             &nbsp; &gt; &nbsp;
             <span

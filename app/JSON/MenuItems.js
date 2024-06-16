@@ -219,7 +219,7 @@ const NavMenuItems2 = [
   {
     menu: [
       {
-        title: "首页",
+        title: "会长致辞",
         url: "/home",
         id: 1,
         submenu: [],
