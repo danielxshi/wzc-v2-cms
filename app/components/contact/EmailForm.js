@@ -1,15 +1,12 @@
-"use client"
+"use client";
 import style from "../../style/modules/_contact.module.scss";
 import style2 from "../../style/modules/_button.module.scss";
-// import "react-phone-number-input/style.css";
-// import PhoneInput from "react-phone-number-input";
 
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { FiSend } from "react-icons/fi";
 
 export default function EmailForm() {
-
   return (
     <div className={style["form--content--wrapper"]}>
       <h3 className={style["contact--form--title"]}>在线留言</h3>
