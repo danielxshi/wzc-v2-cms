@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../../style/modules/_articles.module.scss";
-import Link from "next/link";
+
 function ArticleDetailSection(props) {
   return (
     <div className={style["article--detail--section"]}>
