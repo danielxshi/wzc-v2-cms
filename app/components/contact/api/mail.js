@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import logo from "@/app/public/images/logos/logo.png";
 
-const mail = require("@sendgrid/mail");
+// const mail = require("@sendgrid/mail");
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async (req, res) => {

@@ -1,7 +1,7 @@
 "use client";
 import style from "../../style/modules/_contact.module.scss";
 import style2 from "../../style/modules/_button.module.scss";
-import test from "./api/mail"
+// import test from "./api/mail"
 
 
 // import "react-phone-number-input/style.css";
