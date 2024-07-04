@@ -17,12 +17,6 @@ export default async function Paginate({props}) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
 
-  // useEffect(() => {
-  //   const endOffset = itemOffset + itemsPerPage;
-  //   setCurrentItems(data.slice(itemOffset, endOffset));
-  //   setPageCount(Math.ceil(data.length / itemsPerPage));
-  // }, [itemOffset, itemsPerPage, data]);
-
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
